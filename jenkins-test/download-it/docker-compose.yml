@@ -1,0 +1,14 @@
+version: '2'
+services:
+  jenkins-http-server:
+    build: ./jenkins-http-server
+    ports: 
+      - 9000:80
+    volumes:
+      - ./data:/jenkins
+  run:
+    build: ./run
+    links:
+      - jenkins-http-server
+    depends_on:
+      - jenkins-http-server

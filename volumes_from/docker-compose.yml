@@ -1,0 +1,13 @@
+data:
+  image: alpine
+  command: tail -f /dev/null
+  volumes:
+    - ./mysql-data:/var/lib/postgresql/data
+    - ./app/:/mnt/app/
+db:
+  image: postgres
+  environment:
+    POSTGRES_USER: florent
+    POSTGRES_PASSWORD: mydatabase
+  volumes_from:
+    - data

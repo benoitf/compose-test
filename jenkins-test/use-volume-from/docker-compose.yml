@@ -1,0 +1,10 @@
+data:
+  image: alpine
+  command: tail -f /dev/null
+  volumes:
+    - ./data:/jenkins
+db:
+  image: codenvy/ubuntu_jdk8
+  command: java -jar /jenkins/jenkins.war
+  volumes_from:
+    - data
